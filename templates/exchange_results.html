@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cantor</title>
+</head>
+<body>
+    <h1>You selected {{currency}} and amount {{ amount}} </h1>
+
+    {% if currency=='GBP' %}
+        <img src="{{ url_for('static', filename='flag_england.png') }}">
+    {% elif currency == 'USD' %}
+        <img src="{{ url_for('static', filename='flag_usa.png') }}">
+    {% elif currency == 'JPY' %}
+        <img src="{{ url_for('static', filename='flag_japan.png') }}">
+    {% else %}
+        <img src="{{ url_for('static', filename='flag_poland.png') }}">
+    {% endif %}
+</body>
+</html>
