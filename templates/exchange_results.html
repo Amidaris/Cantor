@@ -1,3 +1,5 @@
+{% from "macros.html" import show_flash_message, show_all_flash_message %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,18 +8,14 @@
     <title>Cantor</title>
 </head>
 <body>
+    {{ show_all_flash_message() }}
+
     <h1>You selected {{currency}} and amount {{ amount}} </h1>
 
-    {% if currency=='GBP' %}
-        <img src="{{ url_for('static', filename='flag_england.png') }}">
-    {% elif currency == 'USD' %}
-        <img src="{{ url_for('static', filename='flag_usa.png') }}">
-    {% elif currency == 'JPY' %}
-        <img src="{{ url_for('static', filename='flag_japan.png') }}">
-     {% elif currency == 'CAD' %}
-        <img src="{{ url_for('static', filename='flag_canada.png') }}">
+    {% if currency_info.code !='unknown' %}
+        <img src="{{ url_for('static', filename=currency_info.flag) }}">
     {% else %}
-        <img src="{{ url_for('static', filename='flag_poland.png') }}">
+        <p>This currency is unknown for us - Sorry.</p>>
     {% endif %}
 </body>
 </html>
