@@ -1,3 +1,5 @@
+{% from "macros.html" import show_flash_message, show_all_flash_message %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +8,8 @@
     <title>Cantor</title>
 </head>
 <body>
+    {{ show_all_flash_message() }}
+
     <h1>You selected {{currency}} and amount {{ amount}} </h1>
 
     {% if currency_info.code !='unknown' %}
