@@ -1,11 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cantor</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block body_header %}
+    Enter transaction details.
+{% endblock %}
+
+{% block body_content %}
+    {{ super() }}
+
     <form id="exchange_form" action="{{ url_for('exchange')}}" method="POST">
         <label for="currency">Currency</label>
         <select id="currency" name="currency">
@@ -17,5 +18,4 @@
         <input type="text" id="amount" name="amount" value="100"><br>
         <input type="submit" value="Send">
     </form> 
-</body>
-</html>
+{% endblock %}
